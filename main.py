@@ -65,7 +65,7 @@ class SnakeHead(SnakeBody):
         # Checks if the head is outside the grid
         x_off_screen = self.coordinates[0] // gridlength
         y_off_screen = self.coordinates[1] // gridlength
-        # Check if the head is in the body of the snake
+        # Checks if the head is touching the body of the snake
         collision = self.coordinates.tolist() in self.get_coordinates()[1:]
         if x_off_screen != 0 or y_off_screen != 0 or collision: return True
 

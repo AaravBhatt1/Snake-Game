@@ -1,3 +1,13 @@
 # Snake-Game
-This is a basic snake game written by me when I was 13 years old. The comments in the code are written by me now (as I am uploading this project).
-It uses concepts from both OOP and FP such as inheritance from OOP and recursion from FP (although I didn't know about FP at the time i wrote this).
+This is a pretty simple snake game which works in an efficient, but also understandable way. That is accomplished by decomposing the game into 3 parts:
+1. moving the snake
+2. checking if the snake is dead
+3. eating the food
+
+Let's simplify the UI into a grid, in which each segment of the snake is a cell. The snake has a head and body cells, and ends with its tail. Splitting the UI into a grid helps simplify the process because of the way pygame uses pixel coordinates to draw shapes.
+
+Moving the snake is quite simple, as when the snake moves, notice how most of its body appears to stay exactly where it is as it follows the head's movements. We can utilise this by only moving / creating the head of the snake instead of moving the whole thing. We will also need to remove the tail cell to make it appear as if the snake is moving forward. Therefore, we can represent the snake with a list of variable length in which we can simply add or remove cells of the snake.
+
+There are 2 ways in which our snake can die: either it wanders off the screen or it collides with its own body. So, before we initiate each movement, we can check if each condition is met so we know when to end our game. To check whether the snake goes off the screen, we can use some simple modular arithmitic, that is the use of integer division, as if the snake's coordinate's are less than 0, then 'coordinate // gridlength' would be negative and if it were greater than the gridlength it would be positive. To check if the next move by the player has caused the snake to collide onto itself, we can simply check whether the new coordinates are the same as any of the coordinates of cells in the snake (list).
+
+Lastly, when handling the food, we first need to check whether the snake's new coordinates are the same as the food's as this would mean the snake has touched and therefore eaten the food. When this happens, it would appear as if new food spawned and the old food was eaten, but instead we could just move our current food into a new, random location in the grid. When the snake eats the food, it grows one cell longer. Dealing with this is simple as to simulate movement, we were going to delete the last cell of the snake anyways, so instead of deleting it and recreating it, we can simply just not delete it when the snake eats food.

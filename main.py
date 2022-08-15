@@ -5,9 +5,9 @@ import numpy as np
 pygame.init()
 
 # Define dimensions of the screen and frame rate as contstants
-gridlength = 50
-squarelength = 10
-fps = 20
+gridlength = 20
+squarelength = 20
+fps = 10
 
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((gridlength * squarelength, gridlength * squarelength))

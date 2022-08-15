@@ -43,7 +43,7 @@ class Food:
 
 snake = [SnakeCell(np.array([gridlength // 2, gridlength // 2]), True)] # The snake is initially a single cell
 food = Food()
-direction = (1, 0) # The snake initially faces right
+direction = right # The snake initially faces right
 
 while True:
     for event in pygame.event.get(): # This checks if the user has quit the game
